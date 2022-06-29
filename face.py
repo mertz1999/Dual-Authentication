@@ -1,7 +1,7 @@
 from deepface import DeepFace
 from log import Log
-import datetime
 from setting import *
+from os.path import exists
 
 class FaceRecognition():
     """
@@ -21,6 +21,9 @@ class FaceRecognition():
 
     # Embedding method
     def embedding(self, image_path):
+        if not exists(image_path):
+            self.error_handle(0)
+            
         self.log_f.make_log("Make embedding")
         # Save embedded code of each model
         embedded = {}
@@ -31,9 +34,15 @@ class FaceRecognition():
         return embedded
 
     # Error handling
-    def error(status):
+    def error_handle(self,status):
         """
+            status codes: 
+                0: False image path
+                1: There is not face in image
+                2: 
         """
+        if status == 0:
+            raise TypeError("Your input image address is incorrect! (please chech it)")
 
 
 
