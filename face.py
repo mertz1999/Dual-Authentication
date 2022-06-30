@@ -4,7 +4,6 @@ from log import Log
 from setting import *
 from os.path import exists
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances
-import numpy as np
 
 class FaceRecognition():
     """
@@ -74,7 +73,7 @@ class FaceRecognition():
 
 face = FaceRecognition(MODELS, METRICS)
 embed_1 = face.embedding('1.png')
-embed_2 = face.embedding('2.png')
+embed_2 = face.embedding('3.jpg')
 
 print(face.similarity(embed_1, embed_2))
 
