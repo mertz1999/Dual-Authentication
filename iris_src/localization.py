@@ -335,10 +335,7 @@ def localize(orig, name):
 
 
 
-# img = cv2.imread('4.bmp', 0)
-# # print(img)
-# local_result = localize(img, 'test')
-# print(local_result)
+
 
 
 
