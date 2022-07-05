@@ -72,8 +72,8 @@ class FaceRecognition():
 
 
 face = FaceRecognition(MODELS, METRICS)
-embed_1 = face.embedding('1.png')
-embed_2 = face.embedding('3.jpg')
+embed_1 = face.embedding('./images/face/1.png')
+embed_2 = face.embedding('./images/face/3.jpg')
 
 print(face.similarity(embed_1, embed_2))
 
