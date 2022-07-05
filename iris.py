@@ -1,6 +1,7 @@
 from iris_src.localization import localize
 from iris_src.normalization import normalize
 from iris_src.enhancement import enhancement
+from iris_src.feature_extraction import extract
 import cv2 
 
 img = cv2.imread('2.bmp', 0)
@@ -15,4 +16,10 @@ norm_img = normalize(local_result)
 norm_img = {'Image': norm_img} 
 
 # Enhance
-enhancement(norm_img)
+enhance_img = enhancement(norm_img)
+norm_img = {'Image': enhance_img}
+
+# Feature extraction
+feat = extract(norm_img)
+print(feat)
+print(len(feat))
