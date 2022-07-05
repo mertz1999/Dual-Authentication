@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 import cv2 
 from os.path import exists
+import numpy as np
 
 
 
@@ -48,8 +49,10 @@ class IrisRecognition():
 
     # Find similarity
     def similarity(self, embed_1, embed_2):
-        distance = cosine_similarity([embed_1], [embed_2])
-        return distance
+        distance1 = sum(abs(embed_1 - embed_2))
+        distance2 = sum((embed_1 - embed_2)**2)
+        distance3 = 1-(np.dot(embed_1.T, embed_2))/(np.linalg.norm(embed_1)*np.linalg.norm(embed_2))
+        return distance1, distance2, distance3
      
 
     # Error handling
@@ -67,9 +70,11 @@ class IrisRecognition():
 
 
 iris = IrisRecognition()
-embed1 = iris.embedding('images/iris/2.bmp')
-embed2 = iris.embedding('images/iris/4.bmp')
+embed1 = np.array(iris.embedding('images/iris/001_1_1.bmp'))
+embed2 = np.array(iris.embedding('images/iris/001_1_2.bmp'))
+
+
 
 print(iris.similarity(embed1, embed2))
-
+# print(distance1, distance2, distance3)
 
