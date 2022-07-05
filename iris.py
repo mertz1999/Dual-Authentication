@@ -1,5 +1,6 @@
 from iris_src.localization import localize
 from iris_src.normalization import normalize
+from iris_src.enhancement import enhancement
 import cv2 
 
 img = cv2.imread('2.bmp', 0)
@@ -11,3 +12,7 @@ local_result = dict(zip(['p_posX', 'p_posY', 'p_radius', 'i_posX', 'i_posY', 'i_
 
 # norm
 norm_img = normalize(local_result)
+norm_img = {'Image': norm_img} 
+
+# Enhance
+enhancement(norm_img)
