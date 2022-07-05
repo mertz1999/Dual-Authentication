@@ -2,3 +2,4 @@ logs/*.log
 dual_auth/*
 __pycache__/*
 iris_src/__pycache__/*
+images/*
