@@ -213,13 +213,14 @@ def IrisLoc2(orig, name):
             if el > 0 and el < topeyelid.shape[0]:
                 img_copy[int(el)+i_lowY, i+i_lowX] = 255
                     
-        cv2.imwrite('localization_resulr.png', img_copy)   
+        # cv2.imwrite('localization_resulr.png', img_copy)   
         
         for i, el in enumerate(y):
             if el > 0:
                 img_copy2[0:int(el)+i_lowY, i+i_lowX] = 0
     else:
-        cv2.imwrite('localization_resulr.png', img_copy)  
+        pass
+        # cv2.imwrite('localization_resulr.png', img_copy)  
         
     return [p_posX, p_posY, p_radius, s_posX, s_posY, s_radius, orig, img_copy2]
 
@@ -322,13 +323,14 @@ def localize(orig, name):
             if el > 0 and el < topeyelid.shape[0]:
                 img_copy[int(el)+i_lowY, i+i_lowX] = 255
                     
-        cv2.imwrite('localization_resulr.png', img_copy)   
+        # cv2.imwrite('localization_resulr.png', img_copy)   
         
         for i, el in enumerate(y):
             if el > 0:
                 img_copy2[0:int(el)+i_lowY, i+i_lowX] = 0
     else:
-        cv2.imwrite('localization_resulr.png', img_copy)  
+        pass
+        # cv2.imwrite('localization_resulr.png', img_copy)  
         
     return [p_posX, p_posY, p_radius, s_posX, s_posY, s_radius, orig, img_copy2]
 

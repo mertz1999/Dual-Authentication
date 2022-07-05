@@ -67,6 +67,6 @@ def normalize(row):
     avg = np.sum(newImg2) / (newImg.shape[0] * newImg.shape[1])
     newImg[coords] = avg
     
-    cv2.imwrite('normalization_result.png', newImg)    
+    # cv2.imwrite('normalization_result.png', newImg)    
     
     return newImg
