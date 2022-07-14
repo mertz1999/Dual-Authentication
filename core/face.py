@@ -1,4 +1,3 @@
-from turtle import distance
 from deepface.DeepFace import represent
 from core.log import Log
 from core.setting import *

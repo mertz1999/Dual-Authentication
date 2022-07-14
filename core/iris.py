@@ -2,7 +2,6 @@ from core.iris_src.localization import localize
 from core.iris_src.normalization import normalize
 from core.iris_src.enhancement import enhancement
 from core.iris_src.feature_extraction import extract
-from sklearn.metrics.pairwise import cosine_similarity
 
 
 import cv2 
