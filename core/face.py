@@ -78,3 +78,4 @@ class FaceRecognition():
 
 # print(embed_2)
 
+    

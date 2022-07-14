@@ -1,4 +1,3 @@
-from core.face import FaceRecognition
 from core.setting import *
 
 from typing import Optional
@@ -10,9 +9,14 @@ from server.routers import embedding
 app = FastAPI()
 app.include_router(embedding.router)
 
+from core.face import FaceRecognition
+from core.setting import *
+
+# Make instance of face-recognition and iris-recognition
+
+face = FaceRecognition(MODELS, METRICS)
 
 
-# face = FaceRecognition(MODELS, METRICS)
 # embed_1 = face.embedding('./images/face/1.png')
 # embed_2 = face.embedding('./images/face/3.jpg')
 
