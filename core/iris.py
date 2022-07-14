@@ -1,7 +1,7 @@
-from iris_src.localization import localize
-from iris_src.normalization import normalize
-from iris_src.enhancement import enhancement
-from iris_src.feature_extraction import extract
+from core.iris_src.localization import localize
+from core.iris_src.normalization import normalize
+from core.iris_src.enhancement import enhancement
+from core.iris_src.feature_extraction import extract
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -75,6 +75,6 @@ embed2 = np.array(iris.embedding('images/iris/001_1_2.bmp'))
 
 
 
-print(iris.similarity(embed1, embed2))
+# print(iris.similarity(embed1, embed2))
 # print(distance1, distance2, distance3)
 

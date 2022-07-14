@@ -1,7 +1,7 @@
 from turtle import distance
 from deepface.DeepFace import represent
-from log import Log
-from setting import *
+from core.log import Log
+from core.setting import *
 from os.path import exists
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances
 
@@ -71,11 +71,11 @@ class FaceRecognition():
 
 
 
-face = FaceRecognition(MODELS, METRICS)
-embed_1 = face.embedding('./images/face/1.png')
-embed_2 = face.embedding('./images/face/3.jpg')
+# face = FaceRecognition(MODELS, METRICS)
+# embed_1 = face.embedding('./images/face/1.png')
+# embed_2 = face.embedding('./images/face/3.jpg')
 
-print(face.similarity(embed_1, embed_2))
+# print(face.similarity(embed_1, embed_2))
 
 # print(embed_2)
 
