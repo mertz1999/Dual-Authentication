@@ -5,3 +5,4 @@ iris_src/__pycache__/*
 images/*
 core/__pycache__/*
 server/routers/__pycache__/*
+core/iris_src/__pycache__/*
