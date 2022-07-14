@@ -3,3 +3,4 @@ dual_auth/*
 __pycache__/*
 iris_src/__pycache__/*
 images/*
+core/__pycache__/*
