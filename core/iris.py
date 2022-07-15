@@ -68,9 +68,9 @@ class IrisRecognition():
 
 
 
-iris = IrisRecognition()
-embed1 = np.array(iris.embedding('images/iris/001_1_1.bmp'))
-embed2 = np.array(iris.embedding('images/iris/001_1_2.bmp'))
+# iris = IrisRecognition()
+# embed1 = np.array(iris.embedding('images/iris/001_1_1.bmp'))
+# embed2 = np.array(iris.embedding('images/iris/001_1_2.bmp'))
 
 
 
