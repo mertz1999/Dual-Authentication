@@ -2,6 +2,7 @@ from deepface.DeepFace import represent
 from core.log import Log
 from core.setting import *
 from os.path import exists
+import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances
 
 class FaceRecognition():
@@ -36,7 +37,7 @@ class FaceRecognition():
         return embedded
     
     # Find similarity
-    def similarity(self, embed_1, embed_2):
+    def similarityv2(self, embed_1, embed_2):
         distance = {}
         for model_name in embed_1:
             if model_name in embed_2:
@@ -44,17 +45,19 @@ class FaceRecognition():
                     distance[model_name] = {}
                     if met == 'cosine':
                         distance[model_name][met] = cosine_similarity(
-                                                                [embed_1[model_name]],
-                                                                [embed_2[model_name]],
+                                                                embed_1,
+                                                                embed_2,
                                                             )
                     elif met == 'euclidean_l2':
                         distance[model_name][met] = euclidean_distances(
-                                                                [embed_1[model_name]],
-                                                                [embed_2[model_name]],
+                                                                embed_1,
+                                                                embed_2,
                                                             )
-
         
         return distance
+    
+    def similarity(self, embed_1, embed_2):
+        return cosine_similarity(np.array([embed_1]),np.array([embed_2]))
      
 
     # Error handling
