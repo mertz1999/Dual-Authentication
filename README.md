@@ -3,8 +3,8 @@ Dual Authentication: Using face-recognition and iris-recognition for more accura
 
 We using FaceNet model in Deepface for face recognition and daugman algorithm for iris recognition.
 
-https://github.com/yj7082126/OpenCV_IrisRecognition
-https://github.com/serengil/deepface
+* https://github.com/yj7082126/OpenCV_IrisRecognition
+* https://github.com/serengil/deepface
 
 
 ## Requirements
