@@ -7,6 +7,7 @@ We using FaceNet model in Deepface for face recognition and daugman algorithm fo
 * https://github.com/serengil/deepface
 
 
+![App Screenshot]("./inc/1.png)
 ## Requirements
 * fastapi
 * uvicorn
