@@ -6,4 +6,4 @@ images/*
 core/__pycache__/*
 server/routers/__pycache__/*
 core/iris_src/__pycache__/*
-server/__pycache_/*
+server/__pycache__/*
