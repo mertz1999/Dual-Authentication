@@ -82,8 +82,11 @@ async def add(
     # try:
     users = db.query(models.User).all() 
     selected_face_id = -1
+    selected_iris_id = -1
     temp = 0
+    best_iris = [2000.,6000.,0.05]
     for user in users:
+        # Get database information and convert them in array format(not string)
         user_data       = user.face
         splitted_face   = make_list(user_data)
 
@@ -93,16 +96,30 @@ async def add(
         user_data       = user.iris_2
         splitted_iris_2 = make_list(user_data)
 
-        face_similarity = instace_face.similarity(splitted_face, face_embed['Facenet'])
+        # find face and iris similarity
+        face_similarity   = instace_face.similarity(splitted_face            , face_embed['Facenet'])
 
-        print(user.name, face_similarity)
+        iris_1_similarity = instace_iris.similarity(np.array(splitted_iris_1), np.array(iris_1_embed))
+        iris_2_similarity = instace_iris.similarity(np.array(splitted_iris_2), np.array(iris_1_embed))
+        iris_similarity   = (np.array(iris_1_similarity) + np.array(iris_2_similarity))/2
+
+        
+        # Best fitted face
         if face_similarity > 0.5 and face_similarity > temp:
             selected_face_id = user.id
             temp = face_similarity
 
-    selected_user = db.query(models.User).filter(models.User.id == selected_face_id).first()
-    
-    return f"{selected_user.name}"
+        # Best fitted iris
+        # if iris_similarity[0] < 1500 and iris_similarity[1] < 2000 and iris_similarity[2] < 0.25:
+        if iris_similarity[0] < best_iris[0] and iris_similarity[1] < best_iris[1] and iris_similarity[2] < best_iris[2]:
+            best_iris = iris_similarity
+            selected_iris_id = user.id
+
+    if selected_iris_id == selected_face_id:
+        selected_user = db.query(models.User).filter(models.User.id == selected_face_id).first()
+        return f"{selected_user.name}"
+    else:
+        return "Can not find your face out iris in user informations"
         
     # except:
     #     return {"detail" : "Problem in adding user to database"}
